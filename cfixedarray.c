@@ -24,6 +24,7 @@ void Init_CFixedArray() {
 
     rb_define_method(CFixedArray, "new_array", method_new_array, -1);
     rb_define_method(CFixedArray, "insert_value", method_insert, 2);
+    rb_define_method(CFixedArray, "each_itr", method_each, -1);
 }
 
 // Our 'test1' method.. it simply returns a value of '10' for now.
@@ -62,4 +63,39 @@ VALUE method_insert(VALUE index, VALUE val, VALUE self) {
     VALUE temp = rb_ary_entry(array, FIX2LONG(index));
 
     return array;
+}
+
+VALUE method_each(int argc, VALUE* argv, VALUE self) {
+
+    VALUE block;
+
+    rb_scan_args(argc, argv, "&", &block);
+
+    VALUE array = rb_iv_get(CFixedArray, "@array");
+
+    VALUE result = rb_block_call(obj, rb_each(array), 0, NULL, block, Qnil);
+
+    return result;
+
+}
+
+VALUE method_sum(VALUE self) {
+
+    long sum = 0;
+
+    // call each with a block
+
+    rb_funcall(VALUE recv, ID id, int argc, ...)
+
+
+
+
+}
+
+VALUE my_block(VALUE block_arg, VALUE data, int argc, VALUE* argv)
+{
+	return FIX2LONG(data)+ FIX2LONG(block_arg)
+
+	/* data will be the last argument you passed to rb_block_call */
+	/* if multiple values are yielded, use argc/argv to access them */
 }

@@ -12,7 +12,7 @@ class Test
 
   c_fixed_array.insert_value(1, 10)
 
-  
+  each_itr()
 
 
   print " *** Testing Ruby Fixed Array Class ***\n"
