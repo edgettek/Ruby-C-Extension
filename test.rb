@@ -1,14 +1,18 @@
 require './ruby_fixed_array'
-require './cfixedarray.bundle'
+require './CFixedArray.bundle'
+
+include FixedArray
 
 class Test
 
-  print " *** Testing C Extension Class ***\n\n"
+  print " *** Testing C Extension Class ***\n"
 
-# MyTest is now a module, so we need to include it
-  include CFixedArray
 
-  puts test1
+  c_fixed_array = new_array(1000000, 253)
+
+  c_fixed_array.insert_value(1, 10)
+
+  
 
 
   print " *** Testing Ruby Fixed Array Class ***\n"

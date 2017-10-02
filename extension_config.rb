@@ -2,7 +2,7 @@ class ExtensionConfig
 
   require 'mkmf'
 
-  extension_name = 'cfixedarray'
+  extension_name = 'CFixedArray'
 
   dir_config(extension_name)
 

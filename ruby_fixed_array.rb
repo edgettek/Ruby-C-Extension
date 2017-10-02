@@ -5,7 +5,11 @@ class RubyFixedArray
     @array = Array.new(size)
 
     if !default.nil?
-      @array.fill(default)
+
+      for i in 0..(size-1)
+        insert(i, default)
+      end
+
     end
 
   end
